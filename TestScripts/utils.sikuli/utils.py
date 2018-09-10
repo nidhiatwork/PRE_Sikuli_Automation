@@ -2,29 +2,23 @@ from sikuli import *
 import os, sys
 import traceback
 from TestScripts import Constants as Constants
+import BaselineImages
 
 def cleanCache_And_LaunchPRE():
         print "\n~~~~~~~~Cleaning cache files and launching PRE application~~~~~~~~"
         os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
-        os.system("open '/Applications/Adobe Premiere Elements 2019/Support Files/Adobe Premiere Elements.app'")
-        
+        os.system("open '/Applications/Adobe Premiere Elements 2019/Support Files/Adobe Premiere Elements.app'")       
         setAutoWaitTimeout(60)
-
-
-        print getBaselineImg('Button_GoalScreen_CloseGoalScreen.png')
-        click("/Users/nbhushan/Desktop/Button_GoalScreen_CloseGoalScreen.png")
-        
-       # click('/Users/nbhushan/Desktop/Button_GoalScreen_CloseGoalScreen.png')
-
-        
-
+        try:
+                find("Button_GoalScreen_CloseGoalScreen.png")
+        except:
+                print("Unable to launch PRE application after waiting for 60 seconds. End of execution.")
+                closePRE()
+                sys.exit(0)
         setAutoWaitTimeout(15)
 
 def closePRE():
         os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
-
-def getBaselineImg( img_name ):
-        return Constants.BaselineFolder+ img_name
         
 def findElement( element ):       
         element_name = getElementNameFromFullPath(element)
