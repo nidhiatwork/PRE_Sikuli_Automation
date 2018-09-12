@@ -12,12 +12,12 @@ def cleanCache_And_LaunchPRE():
         setAutoWaitTimeout(60)
         
         print "\n~~~~~~~~Cleaning cache files and launching PRE application~~~~~~~~"
-        os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
+        #os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
         os.system("open '/Applications/Adobe Premiere Elements 2019/Support Files/Adobe Premiere Elements.app'")       
         
         try:
                 setBundlePath(Constants.BaselineFolder)
-                find(Pattern("Button_GoalScreen_CloseGoalScreen.png").similar(0.80))
+                #find(Pattern("Button_GoalScreen_CloseGoalScreen.png").similar(0.80))
         except:
                 print("Unable to launch PRE application after waiting for 60 seconds. End of execution.")
                 closePRE()
@@ -29,9 +29,8 @@ def cleanCache_And_LaunchPRE():
 
 
 def closePRE():
-        os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
-        wait(3)
-        
+        #os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
+        pass
 def findElement( element ):       
         print "Finding element: " + element
         try:
