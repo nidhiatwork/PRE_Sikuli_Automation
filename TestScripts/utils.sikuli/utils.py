@@ -2,55 +2,61 @@ from sikuli import *
 import os, sys
 import traceback
 from TestScripts import Constants as Constants
+reload(Constants)
 import BaselineImages
+reload(BaselineImages)
+
+reg = Region()
 
 def cleanCache_And_LaunchPRE():
+        setAutoWaitTimeout(60)
+        
         print "\n~~~~~~~~Cleaning cache files and launching PRE application~~~~~~~~"
         os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
         os.system("open '/Applications/Adobe Premiere Elements 2019/Support Files/Adobe Premiere Elements.app'")       
-        setAutoWaitTimeout(60)
+        
         try:
-                find("Button_GoalScreen_CloseGoalScreen.png")
+                setBundlePath(Constants.BaselineFolder)
+                find(Pattern("Button_GoalScreen_CloseGoalScreen.png").similar(0.80))
         except:
                 print("Unable to launch PRE application after waiting for 60 seconds. End of execution.")
                 closePRE()
                 sys.exit(0)
-        setAutoWaitTimeout(15)
+
+        global reg
+        reg = Region(App("Adobe Premiere Elements").window())
+        reg.setAutoWaitTimeout(10)
+
 
 def closePRE():
         os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
-        
+        pass
 def findElement( element ):       
-        element_name = getElementNameFromFullPath(element)
-        print "Finding element: " + element_name
+        print "Finding element: " + element
         try:
-                find(element)
+                with reg:
+                        find(Pattern(element).similar(0.80))
         except:
                         stack = traceback.extract_stack(limit = 2)
-                        print "Unable to find element: " + element_name + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                        print "Unable to find element: " + Constants.BaselineFolder + element + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                         raise
 
 def clickElement( element ):
-        element_name = getElementNameFromFullPath(element)
-        print "Clicking on element: " + element_name
+        print "Clicking on element: " + element
         try:
-                click(element)
+                with reg:
+                        click(Pattern(element).similar(0.80))
         except:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to click element: " + element_name + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to click element: " + Constants.BaselineFolder + element + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
 def assertElementExists( element ):
-        element_name = getElementNameFromFullPath(element)
-        print "Asserting whether element exists: " + element_name
+        print "Asserting whether element exists: " + element
         try:
-                assert(exists(element))
+                with reg:
+                        assert(exists(Pattern(element).similar(0.80)))
         except AssertionError:
                 stack = traceback.extract_stack(limit = 2)
-                print "Unable to assert image exists: " + element_name + "\nBelow are details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                print "Unable to assert image exists: " + Constants.BaselineFolder + element + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
-
-def getElementNameFromFullPath( image_path ):
-        element_path_list = image_path.split("//")
-        image_item = element_path_list[len(element_path_list)-1]
-        return image_item

@@ -4,12 +4,11 @@ from utils import *
 import os
 import sys
 import unittest
-setAutoWaitTimeout(60)
 
 class TestGlassPane_GE(unittest.TestCase):
 
     def setUp(self):       
-        print "haha"
+        utils.cleanCache_And_LaunchPRE()
         
     def test_UI_GlassPane_GE(self):
         print "haha"
@@ -17,6 +16,5 @@ class TestGlassPane_GE(unittest.TestCase):
         
 
     def tearDown(self):
-        
-        print "teardown"    
+       utils.closePRE()        
 

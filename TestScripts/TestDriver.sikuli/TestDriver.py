@@ -14,6 +14,7 @@ if not RootFolder in sys.path:
     sys.path.append(RootFolder)
 
 from TestScripts import Constants as Constants
+reload(Constants)
 from Effects import *
 from Transitions import *
 from GlassPane_GE import *
@@ -38,7 +39,7 @@ for testcase in testcase_list:
         suite.addTest(TestGlassPane_GE("test_UI_GlassPane_GE"))
 
 now = datetime.datetime.now()
-outputfilename = Constants.RootFolder + "//Output//TestReport_" + str(now.day) + str(now.month) + str(now.year) + "_" + str(now.hour) + str(now.minute) + str(now.second) + ".html"
+outputfilename = Constants.RootFolder + "/Output/TestReport_" + str(now.day) + str(now.month) + str(now.year) + "_" + str(now.hour) + str(now.minute) + str(now.second) + ".html"
 outfile = file(outputfilename, "wb")
-runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='PRE UI Tests Execution Report', description='This is test report for test execution of UI tests for Premiere Elements application.' )
+runner = HTMLTestRunner.HTMLTestRunner(stream=outfile, title='PRE UI Tests Execution Report', verbosity=3, dirTestScreenshots=Constants.ScreenshotsFolder, description='This is test report for test execution of UI tests for Premiere Elements application.' )
 runner.run(suite)
