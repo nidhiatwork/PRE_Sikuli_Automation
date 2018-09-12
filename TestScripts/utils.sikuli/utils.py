@@ -30,7 +30,8 @@ def cleanCache_And_LaunchPRE():
 
 def closePRE():
         os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
-        pass
+        wait(3)
+        
 def findElement( element ):       
         print "Finding element: " + element
         try:
