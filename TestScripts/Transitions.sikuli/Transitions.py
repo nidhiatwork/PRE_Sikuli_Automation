@@ -30,37 +30,59 @@ class TestTransitions(unittest.TestCase):
         utils.assertElementExists("Transition_Category_3DMotion_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+	    
         utils.assertElementExists("Transition_Category_Dissolve_items.png")
        
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         utils.assertElementExists("Transition_Category_Iris_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         utils.assertElementExists("Transition_Category_NewBlue3DExplosion_items.png")
                 
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         utils.assertElementExists("Transition_Category_NewBlue3DTransformations_items.png")     
                 
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         
         utils.assertElementExists("Transition_Category_NewBlue_ArtBlends_items.png")
                 
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         utils.assertElementExists("Transition_Category_NewBlue_MotionBlends_items.png")
                 
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         utils.assertElementExists("Transition_Category_PagePeel_items.png")        
                 
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         utils.assertElementExists("Transition_Category_PictureWipes_items.png")        
                     
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         utils.assertElementExists("Transition_Category_Slide_items.png")
                                        
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         utils.assertElementExists("Transition_Category_Wipe_items.png")        
                     
         utils.clickElement("Button_Categories_Next.png")
+        hover("NonClickable_TransitionsPanel_EffectsText.png")
+
         utils.assertElementExists("Transition_Category_Zoom_items.png")
         
 
