@@ -31,51 +31,30 @@ class TestGlassPane_GE(unittest.TestCase):
         wait(1)
         utils.assertElementExists("BaselineIMG_AddMediaOptions.png")
         utils.assertElementExists("GlassPane_Step3_AddMedia.png")
-        
-        
+          
         utils.clickElement("Dropdown_AddMedia_FilesAndFolders.png")
+        utils.clickElement("GlassPane_Import_Window.png")               
         
-        utils.clickElement("GlassPane_Import_Window.png")
-                   
-        
-        type(Constants.TestDataFile_path)
+        typeKeys(Constants.TestDataFile_path)
         type(Key.ENTER)
         utils.clickElement("GlassPane_TestData.png")
         type(Key.ENTER)
-        
-        
-        utils.assertElementExists("GlassPane_Step5_AddMediaToTimeline.png")
-        
+          
+        utils.assertElementExists("GlassPane_Step5_AddMediaToTimeline.png")       
         utils.assertElementExists("GlassPane_ProjectAssets.png")
-        utils.clickElement("GlassPane_ProjectAssets.png")
-        mouseDown(Button.LEFT)
-        mouseMove(4,4)
-        wait(1)
-        mouseMove("GlassPane_ProjectAssets.png")
-        wait(1)
-        mouseMove("GlassPane_MonitorArea.png")
-        wait(1)
-        mouseUp()
+
+        dragAndDropElement("GlassPane_ProjectAssets.png", "GlassPane_MonitorArea.png")
 
         utils.assertElementExists("GlassPane_Step5_AddMediaToTimeline_Track2.png")
         
         wait(2)
-        hover(Pattern("Button_Timeline_Up.png").similar(0.74))
+        utils.hoverElement("Button_Timeline_Up.png")
         mouseDown(Button.LEFT)
         mouseMove("Button_Timeline_Up.png")
         wait(5)
         mouseUp()
 
-        utils.clickElement("GlassPane_ProjectAssets.png")
-        mouseDown(Button.LEFT)
-        mouseMove(4,4)
-        wait(1)
-        mouseMove("GlassPane_ProjectAssets.png")
-        wait(1)
-        mouseMove("VideoTrack2.png")
-        wait(1)
-        mouseUp()
-
+        dragAndDropElement("GlassPane_ProjectAssets.png","VideoTrack2.png")
         utils.assertElementExists("GlassPane_Step6_AddOverlay_1.png")
         
         wait(3)
@@ -84,25 +63,15 @@ class TestGlassPane_GE(unittest.TestCase):
         utils.assertElementExists("BaselineIMG_GE_MatteOverlaysHighlighted.png")
         
         wait(2)
-        hover(Pattern("Button_Timeline_Up.png").similar(0.74))
+        utils.hoverElement("Button_Timeline_Up.png")
         mouseDown(Button.LEFT)
         mouseMove("Button_Timeline_Up.png")
         wait(4)
         mouseUp()
        
-        utils.clickElement("MatteOverlay01.png")
-        mouseDown(Button.LEFT)
-        mouseMove(4,4)
-        wait(1)
-        mouseMove("MatteOverlay01.png")
-        wait(2)
-        mouseMove("AudioTrack3.png")
-        wait(1)
-        mouseUp()
-
+        dragAndDropElement("MatteOverlay01.png","AudioTrack3.png")
         utils.findElement("Button_GE_Next.png")
         wait(1)
-        
         utils.assertElementExists("GlassPane_Step6_AddOverlay_3.png")
         
         utils.clickElement("Button_GE_Next.png")  
@@ -114,22 +83,13 @@ class TestGlassPane_GE(unittest.TestCase):
         utils.assertElementExists("BaselineIMG_TrackMatteEffectHighlighted.png")
         
         wait(2)
-        hover(Pattern("Button_Timeline_Up.png").similar(0.74))
+        utils.hoverElement("Button_Timeline_Up.png")
         mouseDown(Button.LEFT)
         mouseMove("Button_Timeline_Up.png")
         wait(4)
         mouseUp()
 
-        utils.clickElement("BaselineIMG_TrackMatteEffectHighlighted.png")
-        mouseDown(Button.LEFT)
-        mouseMove(4,4)
-        wait(1)
-        mouseMove("BaselineIMG_TrackMatteEffectHighlighted.png")
-        wait(1)
-        mouseMove(Pattern("GlassPane_TrackMatte_DropArea.png").similar(0.80))
-        wait(1)
-        mouseUp()
-
+        dragAndDropElement("BaselineIMG_TrackMatteEffectHighlighted.png", "GlassPane_TrackMatte_DropArea.png")
         utils.assertElementExists("GlassPane_Step7_TrackMatteEffect_3.png")
 
         utils.assertElementExists("BaselineIMG_TrackMatteKey_paramsHighlighted.png")
@@ -150,16 +110,7 @@ class TestGlassPane_GE(unittest.TestCase):
         wait(2)
         utils.assertElementExists("GlassPane_Step8_AddBlurEffect_2.png")
 
-        utils.clickElement("BaselineIMG_FastBlurHighlighted.png")
-        mouseDown(Button.LEFT)
-        mouseMove(4,4)
-        wait(1)
-        mouseMove("BaselineIMG_FastBlurHighlighted.png")
-        wait(1)
-        mouseMove("BaselineIMG_Media_VideoTrack1.png")
-        wait(1)
-        mouseUp()
-
+        dragAndDropElement("BaselineIMG_FastBlurHighlighted.png", "BaselineIMG_Media_VideoTrack1.png")
         utils.assertElementExists("GlassPane_Step8_AddBlurEffect_3.png")
         exists("BaselineIMG_FastBlur_ParamsHighlighted.png")
         

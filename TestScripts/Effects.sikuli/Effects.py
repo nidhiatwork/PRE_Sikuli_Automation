@@ -28,76 +28,76 @@ class TestEffects(unittest.TestCase):
         utils.assertElementExists("Effects_Category_AdvancedAdjustments_items.png")     
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         
         utils.assertElementExists("Effects_Category_BlurSharpen_items.png")
  
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Category_Channel_items.png")
  
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_ColorCorrection_items.png")
 
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_Distort_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_Generate_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_ImageControl_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_Keying_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_NewBlueArtEffects_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_NewBlueCartoonrPlus_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_NewBlueFilmLooks_items.png")
               
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_Perspective_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_Render_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_Stylize_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_Time_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_Transform_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_VideoMerge_items.png")
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         wait(2)
         
         utils.clickElement("Button_Categories_Next.png")
-        hover("NonClickable_EffectsPanelText.png")
+        utils.hoverElement("NonClickable_EffectsPanelText.png")
         utils.assertElementExists("Effects_Categories_HollywoodLooks_items.png")              
 
     

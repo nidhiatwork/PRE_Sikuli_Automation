@@ -9,6 +9,7 @@ reload(BaselineImages)
 reg = Region()
 
 def cleanCache_And_LaunchPRE():
+        
         setAutoWaitTimeout(60)
         
         print "\n~~~~~~~~Cleaning cache files and launching PRE application~~~~~~~~"
@@ -60,4 +61,43 @@ def assertElementExists( element ):
         except AssertionError:
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to assert image exists: " + Constants.BaselineFolder + element + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                raise
+
+
+def hoverElement( element ):       
+        print "Hovering on element: " + element
+        try:
+                
+                hover(element)
+        except:
+                stack = traceback.extract_stack(limit = 2)
+                print "Unable to hover on element: " + Constants.BaselineFolder + element + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                raise
+
+def typeKeys( data ):
+        print "Typing: " + data
+        try:
+                type(data)
+        except:
+                stack = traceback.extract_stack(limit = 2)
+                print "Unable to type: " + data + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                raise
+
+
+def dragAndDropElement( sourceImg, destImg ):       
+        print "Dragging and dropping: " + sourceImg + " to " + destImg
+        try:
+                clickElement(sourceImg)
+                mouseDown(Button.LEFT)
+                mouseMove(4,4)
+                wait(1)
+                mouseMove(sourceImg)
+                wait(1)
+                mouseMove(destImg)
+                wait(1)
+                mouseUp()
+
+        except:
+                stack = traceback.extract_stack(limit = 2)
+                print "Unable to drag and drop: " + Constants.BaselineFolder + sourceImg + "to " + Constants.BaselineFolder + sourceImg + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
