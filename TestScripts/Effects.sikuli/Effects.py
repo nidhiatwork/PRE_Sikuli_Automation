@@ -11,7 +11,7 @@ class TestEffects(unittest.TestCase):
         cleanCache_And_LaunchPRE()
                   
     def test_UI_Effects(self):
-        clickElement("Button_GoalScreen_CloseGoalScreen.png")
+        clickElement("Button_GoalScreen_CloseGoalScreen.png")       
         assertElementExists("BaselineIMG_PRE_QuickView.png")
         
         clickElement("Button_ExpertRoom.png") 
