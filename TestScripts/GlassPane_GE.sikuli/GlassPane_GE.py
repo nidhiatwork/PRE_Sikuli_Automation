@@ -54,7 +54,7 @@ class TestGlassPane_GE(unittest.TestCase):
         wait(5)
         mouseUp()
 
-        dragAndDropElement("GlassPane_ProjectAssets.png","VideoTrack2.png")
+        dragAndDropElement("GlassPane_ProjectAssets.png", Pattern("VideoTrack2.png").similar(0.99))
         assertElementExists("GlassPane_Step6_AddOverlay_1.png")
         
         wait(3)
@@ -69,7 +69,7 @@ class TestGlassPane_GE(unittest.TestCase):
         wait(4)
         mouseUp()
        
-        dragAndDropElement("MatteOverlay01.png","AudioTrack3.png")
+        dragAndDropElement("MatteOverlay01.png", Pattern("AudioTrack3.png").similar(0.80))
         findElement("Button_GE_Next.png")
         wait(1)
         assertElementExists("GlassPane_Step6_AddOverlay_3.png")
