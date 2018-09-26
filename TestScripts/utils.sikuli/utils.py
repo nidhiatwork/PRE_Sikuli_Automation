@@ -19,6 +19,7 @@ def cleanCache_And_LaunchPRE():
         try:
                 setBundlePath(Constants.BaselineFolder)
                 find(Pattern("Button_GoalScreen_CloseGoalScreen.png").similar(0.80))
+                wait(3)
         except:
                 print("Unable to launch PRE application after waiting for 60 seconds. End of execution.")
                 closePRE()

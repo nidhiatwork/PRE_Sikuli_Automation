@@ -11,7 +11,8 @@ class TestTransitions(unittest.TestCase):
         cleanCache_And_LaunchPRE()
         
     def test_UI_Transitions(self):
-        clickElement("Button_GoalScreen_CloseGoalScreen.png")
+        doubleClickElement("Button_GoalScreen_CloseGoalScreen.png")
+        wait(2)
         assertElementExists("BaselineIMG_PRE_QuickView.png")
         
         clickElement("Button_ExpertRoom.png") 

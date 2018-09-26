@@ -12,7 +12,8 @@ class TestGlassPane_GE(unittest.TestCase):
         
     def test_UI_GlassPane_GE(self):
 
-        clickElement("Button_GoalScreen_CloseGoalScreen.png")
+        doubleClickElement("Button_GoalScreen_CloseGoalScreen.png")
+        wait(2)
         assertElementExists("BaselineIMG_PRE_QuickView.png")
 
         clickElement("Button_GuidedRoom.png")
