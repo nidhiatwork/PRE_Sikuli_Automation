@@ -6,8 +6,6 @@ reload(Constants)
 import BaselineImages
 reload(BaselineImages)
 
-reg = Region()
-
 def cleanCache_And_LaunchPRE():
         
         setAutoWaitTimeout(60)
@@ -25,10 +23,7 @@ def cleanCache_And_LaunchPRE():
                 closePRE()
                 sys.exit(0)
 
-        global reg
-        reg = Region(App("Adobe Premiere Elements").window())
-        reg.setAutoWaitTimeout(10)
-
+        setAutoWaitTimeout(15)
 
 def closePRE():
         os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
@@ -42,7 +37,7 @@ def findElement( element ):
         except:
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to find element: " + Constants.BaselineFolder + str(element) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
-                raise
+                assert False
 
 def clickElement( element ):
         print "Clicking on element: " + str(element)
@@ -52,7 +47,7 @@ def clickElement( element ):
         except:
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to click element: " + Constants.BaselineFolder + str(element) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
-                raise
+                assert False
 
 def doubleClickElement( element ):
         print "Double clicking on element: " + str(element)
@@ -62,18 +57,14 @@ def doubleClickElement( element ):
         except:
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to double click element: " + Constants.BaselineFolder + str(element) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
-                raise
+                assert False
 
 def assertElementExists( element ):
         print "Asserting whether element exists: " + str(element)
-        try:
-                
-                assert(exists(element))
-        except AssertionError:
+        if not exists(element):
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to assert image exists: " + Constants.BaselineFolder + str(element) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
-                raise
-
+                assert False
 
 def hoverElement( element ):       
         print "Hovering on element: " + str(element)
@@ -83,16 +74,17 @@ def hoverElement( element ):
         except:
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to hover on element: " + Constants.BaselineFolder + str(element) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
-                raise
+                assert False
 
 def typeKeys( data ):
         print "Typing: " + str(data)
         try:
+
                 type(data)
         except:
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to type: " + str(data) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
-                raise
+                assert False
 
 
 def dragAndDropElement( sourceImg, destImg ):       
@@ -111,4 +103,4 @@ def dragAndDropElement( sourceImg, destImg ):
         except:
                 stack = traceback.extract_stack(limit = 2)
                 print "Unable to drag and drop: " + Constants.BaselineFolder + str(sourceImg) + " to " + Constants.BaselineFolder + str(destImg) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
-                raise
+                assert False
