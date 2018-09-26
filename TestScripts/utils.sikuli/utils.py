@@ -53,6 +53,16 @@ def clickElement( element ):
                 print "Unable to click element: " + Constants.BaselineFolder + str(element) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
                 raise
 
+def doubleClickElement( element ):
+        print "Double clicking on element: " + str(element)
+        try:
+                
+                doubleClick(element)
+        except:
+                stack = traceback.extract_stack(limit = 2)
+                print "Unable to double click element: " + Constants.BaselineFolder + str(element) + "\nBelow are exception details:\n" + str(sys.exc_info()[0]) + " -- line no. " + str(stack[0][1])
+                raise
+
 def assertElementExists( element ):
         print "Asserting whether element exists: " + str(element)
         try:

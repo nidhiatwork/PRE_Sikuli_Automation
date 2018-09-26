@@ -22,17 +22,19 @@ class TestGlassPane_GE(unittest.TestCase):
         clickElement("BaselineIMG_GlassPane_Placeholder.png")
         assertElementExists("GlassPane_Step1_GlassPane.png")
         
-        clickElement("Button_GE_Next.png")
+        clickElement(Pattern("Button_GE_Next.png").similar(0.85))
         wait(1)
         assertElementExists("BaselineIMG_AddMedia_Highlighted.png")
 
         assertElementExists("GlassPane_Step2_AddMedia.png")
-        clickElement("Button_GE_Next.png")
+        clickElement(Pattern("Button_GE_Next.png").similar(0.85))
         wait(1)
         assertElementExists("BaselineIMG_AddMediaOptions.png")
         assertElementExists("GlassPane_Step3_AddMedia.png")
           
         clickElement("Dropdown_AddMedia_FilesAndFolders.png")
+        clickElement("Desktop_ImportWindow.png")
+        
         clickElement("GlassPane_Import_Window.png")               
         
         typeKeys(Constants.TestDataFile_path)
@@ -49,21 +51,24 @@ class TestGlassPane_GE(unittest.TestCase):
         
         wait(2)
         hoverElement("Button_Timeline_Up.png")
+        
         mouseDown(Button.LEFT)
         mouseMove("Button_Timeline_Up.png")
         wait(5)
         mouseUp()
-
-        dragAndDropElement("GlassPane_ProjectAssets.png", Pattern("VideoTrack2.png").similar(0.99))
+        
+        dragAndDropElement("GlassPane_ProjectAssets.png", Pattern("AudioTrack2.png").similar(0.95))
         assertElementExists("GlassPane_Step6_AddOverlay_1.png")
         
         wait(3)
-        clickElement("Button_GE_Next.png")  
+        clickElement(Pattern("Button_GE_Next.png").similar(0.85))  
+        wait(1)
         assertElementExists("GlassPane_Step6_AddOverlay_2.png")
         assertElementExists("BaselineIMG_GE_MatteOverlaysHighlighted.png")
         
         wait(2)
         hoverElement("Button_Timeline_Up.png")
+        
         mouseDown(Button.LEFT)
         mouseMove("Button_Timeline_Up.png")
         wait(4)
@@ -74,16 +79,18 @@ class TestGlassPane_GE(unittest.TestCase):
         wait(1)
         assertElementExists("GlassPane_Step6_AddOverlay_3.png")
         
-        clickElement("Button_GE_Next.png")  
+        clickElement(Pattern("Button_GE_Next.png").similar(0.85))  
         wait(1)
         assertElementExists("GlassPane_EffectPanelHighlighted.png")
-        clickElement("Button_GE_Next.png")  
+        clickElement(Pattern("Button_GE_Next.png").similar(0.85))  
+        wait(1)
         assertElementExists("GlassPane_Step7_TrackMatteEffect_1.png")
         
         assertElementExists("BaselineIMG_TrackMatteEffectHighlighted.png")
         
         wait(2)
         hoverElement("Button_Timeline_Up.png")
+        
         mouseDown(Button.LEFT)
         mouseMove("Button_Timeline_Up.png")
         wait(4)
@@ -103,7 +110,8 @@ class TestGlassPane_GE(unittest.TestCase):
         assertElementExists("GlassPane_Step7_TrackMatteEffect_4.png")
         
         wait(2)
-        clickElement("Button_GE_Next.png")
+        clickElement(Pattern("Button_GE_Next.png").similar(0.85))
+        wait(1)
         assertElementExists("GlassPane_Step8_AddBlurEffect_1.png")
         assertElementExists("GlassPane_EffectPanelHighlighted.png")
         clickElement("GlassPane_EffectPanelHighlighted.png")
@@ -115,7 +123,8 @@ class TestGlassPane_GE(unittest.TestCase):
         exists("BaselineIMG_FastBlur_ParamsHighlighted.png")
         
         wait(2)
-        clickElement("Button_GE_Next.png")                
+        clickElement(Pattern("Button_GE_Next.png").similar(0.85))      
+        wait(1)          
         assertElementExists("GlassPane_Step9_AddAdjustments_1.png")
         
         assertElementExists("BaselineIMG_AdjustmentHighlighted.png")
@@ -134,8 +143,8 @@ class TestGlassPane_GE(unittest.TestCase):
         
         assertElementExists("GlassPane_Step9_AddAdjustments_4.png")
         wait(2)
-        clickElement("Button_GE_Next.png")         
-        
+        clickElement(Pattern("Button_GE_Next.png").similar(0.85))         
+        wait(1)
         assertElementExists("GlassPane_LastStep.png")
         clickElement("Button_GlassPane_Done.png")
         
