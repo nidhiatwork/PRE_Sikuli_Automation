@@ -11,8 +11,8 @@ def cleanCache_And_LaunchPRE():
         setAutoWaitTimeout(60)
         
         print "\n~~~~~~~~Cleaning cache files and launching PRE application~~~~~~~~"
-        os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
-        os.system("open '/Applications/Adobe Premiere Elements 2019/Support Files/Adobe Premiere Elements.app'")       
+        os.system("sh " + Constants.BatFilesFolder + "Mac_Kill_PRE.sh")
+        os.system("open '" + Constants.AppPath_PRE + "'")
         
         try:
                 setBundlePath(Constants.BaselineFolder)
@@ -26,7 +26,7 @@ def cleanCache_And_LaunchPRE():
         setAutoWaitTimeout(15)
 
 def closePRE():
-        os.system("sh " + Constants.RootFolder + "/BatFiles/Mac_Kill_PRE.sh")
+        os.system("sh " + Constants.BatFilesFolder + "Mac_Kill_PRE.sh")
         wait(3)
 
 def findElement( element ):       
