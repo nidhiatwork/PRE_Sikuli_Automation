@@ -26,6 +26,7 @@ def cleanCache_And_LaunchPRE():
         setAutoWaitTimeout(15)
 
 def closePRE():
+        print "~~~~~~~~Closing any open instance of PRE application~~~~~~~~"
         os.system("sh " + Constants.BatFilesFolder + "Mac_Kill_PRE.sh")
         wait(3)
 
